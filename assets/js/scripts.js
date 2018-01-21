@@ -18,9 +18,13 @@ let key = "AKIAJZ34I7JQLVVJXRKA",
 		 + "&SearchIndex=All&Service=AWSECommerceService&Timestamp=" + datetime ,
 	signature = CryptoJS.HmacSHA256(toSign, secret).toString( CryptoJS.enc.Base64 )
 	 			.replace(/\=/g,'%3D').replace(/\+/g, '%2B'),
-	finalUrl = toSign.replace(/\n/g, '').replace('onca/xmlAWSAccessKeyId','onca/xml?AWSAccessKeyId').replace('GET','http://') + "&Signature=" + signature;
+	finalUrl = toSign.replace(/\n/g, '').replace('onca/xmlAWSAccessKeyId','onca/xml?AWSAccessKeyId')
+	.replace('GET','http://') + "&Signature=" + signature,
+	finalUrlToo = toSign.replace(/\n/g, '').replace('onca/xmlAWSAccessKeyId','onca/xml?AWSAccessKeyId')
+	.replace('GET','https://') + "&Signature=" + signature;
  
- $.ajax(finalUrl).then(d => console.log(d));
+ $.ajax(finalUrl).then(d => console.log('http', d));
+ $.ajax(finalUrlToo).then(d => console.log('https', d));
 
 /////////////////////////////////////////////////////////////////
 // Bitcoin lookup
