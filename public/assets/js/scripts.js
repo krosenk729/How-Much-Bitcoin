@@ -11,7 +11,7 @@ $.ajaxPrefilter(function(options) {
  function amazonPrice(searchFor){
  	searchFor = searchFor || 'bitcoins';
  	showLoader();
-
+ 	dataLayer.push({'event': 'search', 'term': searchFor});
 	let key = "AKIAJZ34I7JQLVVJXRKA",
 		secret = "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",
 		associate = "krlyric-20",
@@ -35,8 +35,8 @@ $.ajaxPrefilter(function(options) {
 
 	 $.ajax(finalUrl).then(d =>{
 	 	$('.cards-holder').empty();
-	 	console.log('http', d);
-	 	console.log(d.documentElement.getElementsByTagName('Item'));
+	 	// console.log('http', d);
+	 	// console.log(d.documentElement.getElementsByTagName('Item'));
 	 	for(let xitem of d.documentElement.getElementsByTagName('Item')){
 	 		let item = {};
 	 		item.url = xitem.getElementsByTagName('DetailPageURL')[0].textContent;
