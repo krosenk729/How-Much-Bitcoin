@@ -1,6 +1,6 @@
 # How-Much-Bitcoin
-[The world may never know](https://krosenk729.github.io/How-Much-Bitcoin/)
-
+[The world may never know](https://how-much-bitcoin.herokuapp.com/)
+^ Link to app 
 ---
 ### Helpful Docs
 (or at least the ones that helped me)
