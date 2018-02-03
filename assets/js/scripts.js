@@ -23,6 +23,18 @@ let key = "AKIAJZ34I7JQLVVJXRKA",
 	finalUrlToo = toSign.replace(/\n/g, '').replace('onca/xmlAWSAccessKeyId','onca/xml?AWSAccessKeyId')
 	.replace('GET','https://') + "&Signature=" + signature;
  
+ console.log(finalUrl);
+
+ var xhttp = new XMLHttpRequest();
+ xhttp.onreadystatechange = function() {
+ 	console.log(this.responseText);
+    if (this.readyState == 4 && this.status == 200) {
+      console.log('final from ajax', this.responseText );
+    }
+  };
+ xhttp.open('GET', finalUrl);
+ xhttp.send();
+
  $.ajax(finalUrl).then(d => console.log('http', d));
  $.ajax(finalUrlToo).then(d => console.log('https', d));
 
