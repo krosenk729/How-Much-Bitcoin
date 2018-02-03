@@ -9,6 +9,8 @@ $.ajaxPrefilter(function(options) {
 /////////////////////////////////////////////////////////////////
 
  function amazonPrice(searchFor){
+ 	searchFor = searchFor || 'bitcoins';
+ 	showLoader();
 
 	let key = "AKIAJZ34I7JQLVVJXRKA",
 		secret = "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",
@@ -38,7 +40,7 @@ $.ajaxPrefilter(function(options) {
 	 	for(let xitem of d.documentElement.getElementsByTagName('Item')){
 	 		let item = {};
 	 		item.url = xitem.getElementsByTagName('DetailPageURL')[0].textContent;
-	 		item.pic = xitem.getElementsByTagName('LargeImage')[0].textContent;
+	 		item.pic = xitem.getElementsByTagName('MediumImage')[0].firstElementChild.innerHTML;
 	 		item.name = xitem.getElementsByTagName('Title')[0].textContent;
 	 		item.price = xitem.getElementsByTagName('FormattedPrice')[0].textContent;
 	 		item.rawprice = xitem.getElementsByTagName('Amount')[0].textContent;
@@ -56,15 +58,31 @@ $.ajaxPrefilter(function(options) {
  function makeFrag( itemObj ){
  	return `<div class="card horizontal">
  	<div class="card-image">
-    	<img src="${ itemObj.pic }.jpg">
+    	<img src="${ itemObj.pic }">
 	</div>
- 	<h5 class="card-body">You could get <span class="totalNum">${ Math.floor(bitCoinP / itemObj.rawprice) }</span> 
- 	<a href="${itemObj.url}" target="blank">${itemObj.name}</a>s
- 	at ${itemObj.price} each</h5>
+ 	<p class="card-body center">At ${itemObj.price}, you could could buy <span class="totalNum jumper">${ Math.floor(bitCoinP / itemObj.rawprice) }</span> 
+ 	<a class="amazonLink" href="${itemObj.url}" target="blank">${itemObj.name}</a>
+ 	</p>
  	</div>`;
  }
 
- amazonPrice( $('#search-for').value || 'bitcoins' );
+ function showLoader(){
+ 	return $('.cards-holder').html(`<div class="preloader-wrapper big active center">
+		<div class="spinner-layer spinner-green-only">
+		<div class="circle-clipper left">
+		<div class="circle"></div>
+		</div><div class="gap-patch">
+		<div class="circle"></div>
+		</div><div class="circle-clipper right">
+		<div class="circle"></div>
+		</div>
+		</div>
+		</div>`);
+ }
+$('.chip').click(function(){
+	$('#search-for').val( this.textContent );
+	amazonPrice( this.textContent );
+});
 
 /////////////////////////////////////////////////////////////////
 // Bitcoin lookup
@@ -76,7 +94,10 @@ function bitCoinPrice(){
 	.then((data)=>{
 		console.log(data[0].price_usd);
 		bitCoinP = data[0].price_usd;
-		return $('.btcoin').text(`Bitcoin is trending at ${bitCoinP} USD`);
+		return $('.btcoin').html(`Bitcoin is trending at <span class="btcoin-val">$${bitCoinP}</span>`);
+	})
+	.then(()=>{
+		amazonPrice( $('#search-for').val() || 'bitcoins' );
 	});
 }
 bitCoinPrice();

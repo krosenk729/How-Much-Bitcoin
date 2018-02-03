@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>How Much Bitcoin Will Buy You</title>
 	<meta charset="utf-8">
-	<meta name="description" content="Stuff here">
+	<meta name="description" content="Have a bitcoin? How many things on amazon could you buy with it?">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-	<style type="text/css">
-		.card.horizontal{
-			align-items: center;
-		}
-		.card-body{
-			margin: 1em;
-		}
-	</style>
 </head>
 <body>
-	<div class="container">
-		<div class="btcoin"></div>
-		<div class="search">
-			<input type="text" name="search-for" id="search-for" onkeyup="amazonPrice(this.value)">
+	<div class="btcoin-wrap">
+		<div class="container center">
+		<div class="btcoin">
+			Bitcoin is trending at ...
 		</div>
-		<div class="cards-holder"></div>
+		<div class="search">
+			How many 
+			<div class="input-field inline">
+			<input type="text" name="search-for" id="search-for" onkeyup="amazonPrice(this.value)" value="" placeholder="stuff">
+			<i class="material-icons prefix">search</i>
+			</div>
+			could you get?
+		</div>
+		<div class="ideas">
+			 <div class="chip">Dog Toys</div>
+			 <div class="chip">Ugg Boots</div>
+			 <div class="chip">KCups</div>
+			 <div class="chip">Harry Potter Books</div>
+			 <div class="chip">Plaid Socks</div>
+			 <div class="chip">Toothpick Holders</div>
+		</div>
+		</div>
 	</div>
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- CryptoJS -->
-	<!-- https://cdnjs.com/libraries/crypto-js -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64.js"></script>
-	<!-- Docs https://docs.aws.amazon.com/AWSECommerceService/latest/DG/rest-signature.html -->
-	<!-- Help https://groups.google.com/forum/#!topic/crypto-js/XMotofmultk -->
-
-
+	<div class="container center cards-holder">
+		<div class="preloader-wrapper big active center">
+		<div class="spinner-layer spinner-green-only">
+		<div class="circle-clipper left">
+		<div class="circle"></div>
+		</div><div class="gap-patch">
+		<div class="circle"></div>
+		</div><div class="circle-clipper right">
+		<div class="circle"></div>
+		</div>
+		</div>
+		</div>
+	</div>
+	<script src="assets/lib/jquery.min.js"></script>
+	<script src="assets/lib/hmac-sha256.js"></script>
+	<script src="assets/lib/enc-base64.js"></script>
 	<script src="assets/js/scripts.js"></script>
 </body>
 </html>
