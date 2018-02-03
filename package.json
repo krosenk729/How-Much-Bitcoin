@@ -1,0 +1,26 @@
+{
+  "name": "how-much-bitcoin-gets-you",
+  "version": "1.0.0",
+  "description": "How much can you buy with your bitcoin?",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krosenk729/How-Much-Bitcoin.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "shopping"
+  ],
+  "author": "Katherine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krosenk729/How-Much-Bitcoin/issues"
+  },
+  "homepage": "https://github.com/krosenk729/How-Much-Bitcoin#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
