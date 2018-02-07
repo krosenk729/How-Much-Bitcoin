@@ -11,7 +11,9 @@ $.ajaxPrefilter(function(options) {
  function amazonPrice(searchFor){
  	searchFor = searchFor || 'bitcoins';
  	showLoader();
+ 	ga('send', 'event', 'search', 'search', searchFor);
  	dataLayer.push({'event': 'search', 'term': searchFor});
+
 	let key = "AKIAJZ34I7JQLVVJXRKA",
 		secret = "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",
 		associate = "krlyric-20",

@@ -89,9 +89,6 @@ body{
 	display: flex;
 	justify-content: center;
 }
-.card.horizontal .card-image{
-	max-width: 25%;
-}
 .card.horizontal .card-image img{
 	margin: 1em;
 }
