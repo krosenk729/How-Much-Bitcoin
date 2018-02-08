@@ -104,3 +104,7 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 	-webkit-box-shadow: 0 2px 0 0 #e8f5e9;
 	box-shadow: 0 2px 0 0 #e8f5e9;
 }
+
+@media screen and (max-width: 400px){
+	.card.horizontal{ flex-wrap: wrap; }
+}
