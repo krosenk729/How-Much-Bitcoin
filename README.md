@@ -1,6 +1,12 @@
 # How-Much-Bitcoin
 [The world may never know](https://how-much-bitcoin.herokuapp.com/)
-^ Link to app 
+
+---
+
+Search (real-time) to compare how many somethings you could get based on the current price of bitcoin
+
+![demo](https://github.com/krosenk729/How-Much-Bitcoin/blob/master/public/assets/img/screencast.gif)
+
 ---
 ### Helpful Docs
 (or at least the ones that helped me)
